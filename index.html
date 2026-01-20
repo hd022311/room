@@ -6,80 +6,90 @@
     <title>富邦俊德 ‧ 家族資產守護者</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 放大標籤字體 */
+        .label-text { font-size: 1.1rem; @apply block font-black text-slate-700 mb-2 ml-1; }
         .card { @apply bg-white p-6 rounded-3xl shadow-lg border border-gray-100 mb-6; }
         .input-container { @apply flex items-center bg-gray-50 rounded-xl mb-4 px-4 border border-gray-200 focus-within:border-blue-500 transition; }
         .input-box { @apply flex-grow bg-transparent border-0 focus:ring-0 text-lg py-3 text-right font-bold text-slate-700; }
-        .tax-detail-value { font-size: 1.6rem; @apply font-black text-slate-900 underline decoration-4 decoration-blue-400; }
-        .tax-rate-big { font-size: 1.85rem; @apply font-black text-red-600 block my-1 tracking-tight; }
+        
+        /* 稅種名稱加大 */
+        .tax-name-lg { font-size: 1.25rem; @apply font-black text-slate-800; }
+        .tax-detail-value { font-size: 1.75rem; @apply font-black text-[#004a99] underline decoration-4 decoration-blue-300; }
+        
+        /* 房地合一稅率大字 */
+        .tax-rate-big { font-size: 2rem; @apply font-black text-red-600 block my-1 tracking-tight; }
+        
         .formula-text { @apply mt-3 p-4 bg-slate-50 rounded-xl text-xs text-slate-600 leading-relaxed border border-gray-100; }
         .legacy-tag { @apply inline-block bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-black mb-2 shadow-sm; }
         .btn-line-custom { @apply w-full bg-[#06C755] text-white py-4 rounded-2xl font-black text-center shadow-lg flex items-center justify-center space-x-2 mt-4 hover:bg-[#05b34c] active:scale-95 transition; }
+        
         .advice-box { @apply mt-6 bg-blue-50 p-5 rounded-2xl border border-blue-100; }
         .advice-item { @apply flex items-start mb-3 text-sm text-slate-700 leading-relaxed; }
         .advice-num { @apply bg-[#004a99] text-white w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-bold mr-2 mt-0.5; }
+        .benefit-tag { @apply inline-block bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold mr-1 mb-1; }
     </style>
 </head>
-<body class="bg-slate-50 p-4 pb-24 font-sans text-slate-800">
+<body class="bg-slate-100 p-4 pb-24 font-sans text-slate-800">
 
     <div class="max-w-md mx-auto">
         <header class="py-8 text-center">
-            <h1 class="text-2xl font-black text-[#004a99] tracking-tighter">富邦俊德</h1>
-            <p class="text-gray-500 font-bold text-sm tracking-widest mt-1">您的家族資產守護者</p>
-            <div class="w-12 h-1 bg-[#b8860b] mx-auto mt-4 rounded-full"></div>
+            <h1 class="text-3xl font-black text-[#004a99] tracking-tighter">富邦俊德</h1>
+            <p class="text-gray-500 font-bold text-base tracking-widest mt-1">您的家族資產守護者</p>
+            <div class="w-16 h-1 bg-[#b8860b] mx-auto mt-4 rounded-full"></div>
         </header>
 
         <div class="card">
-            <h2 class="font-black text-lg text-gray-800 mb-5 flex items-center">
-                <span class="w-2 h-6 bg-[#004a99] rounded-sm mr-3"></span>1. 環境與價值設定
+            <h2 class="font-black text-xl text-gray-800 mb-6 flex items-center">
+                <span class="w-2 h-7 bg-[#004a99] rounded-sm mr-3"></span>1. 環境與價值設定
             </h2>
             
-            <label class="block text-xs font-black text-gray-400 mb-2 ml-1">坐落縣市</label>
-            <select id="city" class="w-full bg-blue-50 border-0 border-b-2 border-blue-200 rounded-t-lg py-4 px-4 mb-5 text-gray-700 font-bold outline-none">
+            <label class="label-text">📍 坐落縣市</label>
+            <select id="city" class="w-full bg-blue-50 border-0 border-b-4 border-blue-200 rounded-t-xl py-4 px-4 mb-6 text-lg text-gray-700 font-black outline-none">
                 <option value="1.5">台北市 (高漲幅區)</option>
                 <option value="1.3" selected>新北市/台中市 (中高漲幅)</option>
                 <option value="1.2">桃園/台南/高雄 (中漲幅)</option>
                 <option value="1.1">其他縣市 (穩健漲幅)</option>
             </select>
 
-            <label class="block text-xs font-black text-gray-400 mb-2 ml-1">父母取得年份</label>
-            <select id="acquireYear" class="w-full bg-slate-100 border-0 border-b-2 border-slate-300 rounded-t-lg py-4 px-4 mb-5 text-gray-700 font-bold outline-none">
+            <label class="label-text">📅 父母取得年份</label>
+            <select id="acquireYear" class="w-full bg-slate-100 border-0 border-b-4 border-slate-300 rounded-t-xl py-4 px-4 mb-6 text-lg text-gray-700 font-black outline-none">
                 <option value="old">民國 104 年 (含) 以前 【舊制】</option>
                 <option value="new">民國 105 年 (含) 以後 【新制】</option>
             </select>
 
-            <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="grid grid-cols-2 gap-4 mb-6">
                 <div>
-                    <label class="block text-[10px] font-black text-gray-400 mb-1 ml-1">父母持有年數</label>
+                    <label class="label-text" style="font-size: 0.9rem;">父母持有年數</label>
                     <div class="input-container mb-0">
-                        <input type="number" id="pYears" class="input-box text-sm" value="20">
+                        <input type="number" id="pYears" class="input-box" value="20">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-[10px] font-black text-gray-400 mb-1 ml-1">子女預計持有</label>
+                    <label class="label-text" style="font-size: 0.9rem;">子女預計持有</label>
                     <div class="input-container mb-0">
-                        <input type="number" id="cYears" class="input-box text-sm" value="2">
+                        <input type="number" id="cY" class="input-box" value="2">
                     </div>
                 </div>
             </div>
 
-            <label class="block text-xs font-black text-gray-400 mb-2 ml-1">公告現值 (萬)</label>
+            <label class="label-text">💰 公告現值 (萬)</label>
             <div class="input-container">
                 <input type="number" id="baseValue" class="input-box" value="600">
             </div>
 
-            <label class="block text-xs font-black text-gray-400 mb-2 ml-1 text-blue-700">目前行情/買賣價 (萬)</label>
+            <label class="label-text">📈 目前行情價 (萬)</label>
             <div class="input-container">
                 <input type="number" id="marketValue" class="input-box" value="2000">
             </div>
 
-            <label class="block text-xs font-black text-gray-400 mb-2 ml-1 text-red-700">未來預計賣出價 (萬)</label>
+            <label class="label-text">🚀 未來賣出價 (萬)</label>
             <div class="input-container">
                 <input type="number" id="futurePrice" class="input-box" value="2500">
             </div>
         </div>
 
-        <button onclick="calculateAll()" class="w-full bg-[#004a99] text-white py-5 rounded-2xl font-black text-xl shadow-xl active:scale-95 transition">
-            進行守護者分析
+        <button onclick="calculateAll()" class="w-full bg-[#004a99] text-white py-6 rounded-2xl font-black text-2xl shadow-xl active:scale-95 transition">
+            開始守護者分析
         </button>
 
         <div id="results" class="hidden mt-8 space-y-6">
@@ -90,22 +100,30 @@
                     <span id="inheritBadge" class="legacy-tag">舊制適用</span>
                 </div>
                 <div class="space-y-4">
-                    <p class="text-sm font-bold text-gray-500">當下過戶稅負：<span class="text-2xl font-black text-gray-900 ml-2">0 萬元</span> <span class="text-[10px] font-normal text-gray-400">(預估值)</span></p>
+                    <div class="bg-green-50 p-4 rounded-xl border border-green-100">
+                        <div class="flex flex-wrap">
+                            <span class="benefit-tag">✓ 免土地增值稅</span>
+                            <span class="benefit-tag">✓ 免契稅</span>
+                            <span class="benefit-tag">✓ 遺產稅免稅額高</span>
+                        </div>
+                        <p class="text-sm font-bold text-slate-500 mt-2">當下過戶稅負：</p>
+                        <p class="text-3xl font-black text-green-600">0 萬元 <span class="text-xs font-normal text-gray-400">(預估值)</span></p>
+                    </div>
+                    
                     <a href="https://liff.line.me/2008902145-EOR8LZNp" target="_blank" class="btn-line-custom">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.232-5.378-9.504-12-9.504s-12 4.272-12 9.504c0 4.688 4.264 8.6 10.024 9.352.392.088.92.256 1.056.592.12.304.08.776.04 1.088l-.176 1.056c-.056.328-.256 1.288 1.104.704 1.36-.584 7.328-4.312 10.008-7.376 1.952-2.184 1.944-4.24 1.944-5.416z"/></svg>
-                        <span>詳細遺產稅額試算</span>
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.232-5.378-9.504-12-9.504s-12 4.272-12 9.504c0 4.688 4.264 8.6 10.024 9.352.392.088.92.256 1.056.592.12.304.08.776.04 1.088l-.176 1.056c-.056.328-.256 1.288 1.104.704 1.36-.584 7.328-4.312 10.008-7.376 1.952-2.184 1.944-4.24 1.944-5.416z"/></svg>
+                        <span class="text-lg">點此試算詳細遺產稅額</span>
                     </a>
                 </div>
 
                 <div class="advice-box">
-                    <h4 class="font-black text-[#004a99] mb-4 text-base border-b border-blue-200 pb-2">俊德建議房產傳承規劃方式</h4>
-                    <div class="advice-item"><span class="advice-num">1</span><p><b>規劃遺囑：</b>一間房子一人繼承，避開「共有」爭議。</p></div>
+                    <h4 class="font-black text-[#004a99] mb-4 text-lg border-b-2 border-blue-200 pb-2 text-center">俊德建議房產傳承規劃</h4>
+                    <div class="advice-item"><span class="advice-num">1</span><p><b>規劃遺囑：</b>一間房子一人繼承，避免未來「共有」爭議。</p></div>
                     <div class="advice-item"><span class="advice-num">2</span><p><b>處置房產：</b>處分部分房產創造現金，增加規劃彈性。</p></div>
-                    <div class="advice-item"><span class="advice-num">3</span><p><b>保險補足落差：</b>價值不等時，用壽險金讓分配更公平。</p></div>
-                    <div class="advice-item"><span class="advice-num">4</span><p><b>移出遺產外：</b>降低「應繼分」、「特留分」的額度。</p></div>
-                    <div class="advice-item"><span class="advice-num">5</span><p><b>預留特留分：</b>避免其他繼承人事後主張扣減。</p></div>
-                    <div class="advice-item"><span class="advice-num">6</span><p><b>預留稅源：</b>提早準備資金，以免現鈔不足繳稅。</p></div>
-                    <p class="text-[10px] text-blue-900 font-black mt-4 text-center">房子順利傳承，也兼顧公平與稅務效率</p>
+                    <div class="advice-item"><span class="advice-num">3</span><p><b>保險補足價值：</b>房子價值不等時，用壽險金平衡分配。</p></div>
+                    <div class="advice-item"><span class="advice-num">4</span><p><b>移出遺產外：</b>有效降低「應繼分」、「特留分」額度。</p></div>
+                    <div class="advice-item"><span class="advice-num">5</span><p><b>預留特留分：</b>避免其他繼承人事後扣減，遺囑更穩。</p></div>
+                    <div class="advice-item"><span class="advice-num">6</span><p><b>預留稅源：</b>提早準備資金，以免現鈔不足繳遺產稅。</p></div>
                 </div>
 
                 <div class="mt-6 pt-6 border-t border-gray-100">
@@ -118,12 +136,12 @@
             <div class="card border-t-8 border-orange-500">
                 <h3 class="font-black text-2xl text-orange-700 mb-4">方案 B：贈與</h3>
                 <div id="giftDetails" class="space-y-4"></div>
-                <div class="pt-4 border-t border-dashed mt-4">
-                    <p class="text-xs font-bold text-gray-400 mb-1">當下過戶總計：</p>
-                    <p id="giftNow" class="text-3xl font-black text-gray-900">0 萬元 (預估值)</p>
+                <div class="pt-4 border-t-2 border-dashed mt-4 text-right">
+                    <p class="text-sm font-bold text-gray-400">當下過戶總計：</p>
+                    <p id="giftNow" class="text-3xl font-black text-slate-900">0 萬元 (預估值)</p>
                 </div>
                 <div class="mt-6 pt-6 border-t border-gray-100">
-                    <p class="text-sm font-black text-gray-500 mb-2">未來轉售房地合一稅</p>
+                    <p class="text-sm font-black text-gray-500 underline mb-2">未來轉售房地合一稅</p>
                     <span id="giftFutureTax" class="tax-rate-big text-red-700">0 萬元 (預估值)</span>
                 </div>
             </div>
@@ -131,29 +149,26 @@
             <div class="card border-t-8 border-slate-700">
                 <h3 class="font-black text-2xl text-gray-800 mb-4">方案 C：買賣</h3>
                 <div id="saleDetails" class="space-y-4"></div>
-                <div class="pt-4 border-t border-dashed mt-4">
-                    <p class="text-xs font-bold text-gray-400 mb-1">當下過戶總計：</p>
-                    <p id="saleNow" class="text-3xl font-black text-gray-900">0 萬元 (預估值)</p>
+                <div class="pt-4 border-t-2 border-dashed mt-4 text-right">
+                    <p class="text-sm font-bold text-gray-400">當下過戶總計：</p>
+                    <p id="saleNow" class="text-3xl font-black text-slate-900">0 萬元 (預估值)</p>
                 </div>
                 <div class="bg-red-50 text-red-700 p-4 rounded-xl text-xs mt-4 border border-red-100 font-bold leading-tight">
-                    ⚠️ 守護者警語：二親等買賣要有金流證明，否則將視同贈與。
+                    ⚠️ 守護者警語：二親等買賣務必備妥「支付價款證明（金流）」，否則將視同贈與。
                 </div>
                 <div class="mt-6 pt-6 border-t border-gray-100">
-                    <p class="text-sm font-black text-gray-500 mb-2">未來轉售房地合一稅</p>
+                    <p class="text-sm font-black text-gray-500 underline mb-2">未來轉售房地合一稅</p>
                     <span id="saleFutureTax" class="tax-rate-big text-blue-600">0 萬元 (預估值)</span>
                 </div>
             </div>
 
-            <p class="text-[10px] text-red-500 text-center pb-10 font-bold italic">本工具僅供參考，詳細以承辦機關為主</p>
+            <p class="text-xs text-red-500 text-center pb-10 font-black tracking-widest italic">※ 本試算結果僅供參考，實際稅額以國稅局核定為準</p>
         </div>
     </div>
 
     <script>
         function getRate(y) {
-            if (y < 2) return 0.45;
-            if (y < 5) return 0.35;
-            if (y < 10) return 0.20;
-            return 0.15;
+            if (y < 2) return 0.45; if (y < 5) return 0.35; if (y < 10) return 0.20; return 0.15;
         }
 
         function calculateAll() {
@@ -161,7 +176,7 @@
                 const cityM = parseFloat(document.getElementById('city').value);
                 const isOld = document.getElementById('acquireYear').value === 'old';
                 const pY = parseFloat(document.getElementById('pYears').value || 0);
-                const cY = parseFloat(document.getElementById('cYears').value || 0);
+                const cY = parseFloat(document.getElementById('cY').value || 0);
                 const base = parseFloat(document.getElementById('baseValue').value || 0);
                 const market = parseFloat(document.getElementById('marketValue').value || 0);
                 const future = parseFloat(document.getElementById('futurePrice').value || 0);
@@ -174,29 +189,26 @@
                 document.getElementById('inheritBadge').innerText = isOld ? "舊制適用" : "新制併計持有";
                 let iTax = isOld ? Math.round((future-base)*0.3*0.2) : Math.round((future-base)*getRate(pY+cY));
                 document.getElementById('inheritFutureTax').innerText = iTax + " 萬元 (預估值)";
-                document.getElementById('inheritFormula').innerText = isOld ? "舊制優勢：繼承取得後轉售，土地交易所得免稅，僅課房屋部分所得。" : `新制：併計持有 ${pY+cY} 年，稅率 ${getRate(pY+cY)*100}%。`;
+                document.getElementById('inheritFormula').innerText = isOld ? "符合舊制：繼承後轉售，土地免交易稅，稅負極省。" : `新制：併計持有 ${pY+cY} 年，稅率 ${getRate(pY+cY)*100}%。`;
 
                 // B. 贈與
                 document.getElementById('giftDetails').innerHTML = `
-                    <div class="flex justify-between items-center"><span class="text-xs font-bold">贈與稅</span><span class="tax-detail-value">${gift} 萬</span></div>
-                    <div class="flex justify-between items-center"><span class="text-xs font-bold">土地增值稅</span><span class="tax-detail-value">${lvt} 萬</span></div>
-                    <div class="flex justify-between items-center"><span class="text-xs font-bold">契稅</span><span class="tax-detail-value">${deed} 萬</span></div>`;
+                    <div class="flex justify-between items-center"><span class="tax-name-lg">🎁 贈與稅</span><span class="tax-detail-value">${gift} 萬</span></div>
+                    <div class="flex justify-between items-center"><span class="tax-name-lg">🏘️ 土地增值稅</span><span class="tax-detail-value">${lvt} 萬</span></div>
+                    <div class="flex justify-between items-center"><span class="tax-name-lg">📜 契稅</span><span class="tax-detail-value">${deed} 萬</span></div>`;
                 document.getElementById('giftNow').innerText = (gift + lvt + deed) + " 萬元 (預估值)";
                 document.getElementById('giftFutureTax').innerText = Math.round((future - base) * getRate(cY)) + " 萬元 (預估值)";
 
                 // C. 買賣
                 document.getElementById('saleDetails').innerHTML = `
-                    <div class="flex justify-between items-center"><span class="text-xs font-bold text-blue-800">土地增值稅</span><span class="tax-detail-value">${lvt} 萬</span></div>
-                    <div class="flex justify-between items-center"><span class="text-xs font-bold text-blue-800">契稅</span><span class="tax-detail-value">${deed} 萬</span></div>`;
+                    <div class="flex justify-between items-center"><span class="tax-name-lg text-blue-800">🏘️ 土地增值稅</span><span class="tax-detail-value">${lvt} 萬</span></div>
+                    <div class="flex justify-between items-center"><span class="tax-name-lg text-blue-800">📜 契稅</span><span class="tax-detail-value">${deed} 萬</span></div>`;
                 document.getElementById('saleNow').innerText = (lvt + deed) + " 萬元 (預估值)";
                 document.getElementById('saleFutureTax').innerText = Math.round((future - market) * getRate(cY)) + " 萬元 (預估值)";
 
                 document.getElementById('results').classList.remove('hidden');
                 window.scrollTo({ top: document.getElementById('results').offsetTop - 20, behavior: 'smooth' });
-            } catch (e) {
-                console.error(e);
-                alert("試算過程發生錯誤，請檢查輸入數值。");
-            }
+            } catch (e) { alert("請填寫正確數值"); }
         }
     </script>
 </body>
